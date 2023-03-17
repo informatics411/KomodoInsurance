@@ -35,34 +35,34 @@ public class ProgramUI
             switch (input)
             {
                 case "1":
-                    AddDeveloperInfo();
+                    AddNewDeveloper();
                     break;
                 case "2": //View all Developers
                     SeeAllDevelopers();
                     break;
                 case "3": //View Developer by ID
-                    // FindDeveloperByID();
+                    SeeDeveloperbyID();
                     break;
                 case "4": //View Developer by Has Pluralsight
                     // DeveloperByPluralsightExpiry();
                     break;
                 case "5": //Update existing Developer
-                    // UpdateExistingDeveloper();
+                    UpdateDeveloperAttributes();
                     break;
                 case "6": //Delete existing Developer
-                    // RemoveExistingDevloper();
+                    RemoveDeveloper();
                     break;
                 case "7":
-                    // LookAtTeamsList();
+                    SeeAllTeams();
                     break;
                 case "8":
-                    // AddNewTeam();
+                    AddNewTeam();
                     break;
                 case "9":
-                    // ChangeTeamAttributes();
+                    UpdateTeamAttributes();
                     break;
                 case "10":
-                    // DeleteTeam();
+                    RemoveTeam();
                     break;
                 // Exit
                 case "11":
@@ -71,20 +71,20 @@ public class ProgramUI
                     break;
 
                 default:
-                    System.Console.WriteLine("Please enter a valid number");
+                    System.Console.WriteLine("Please enter a number from the Menu.");
                     break;
             }
         }
 
-        private void AddDeveloperInfo()
+        private void AddNewDeveloper()
         {
             Console.Clear();
             Developer newDeveloper = new Developer();
             //Last name
-            System.Console.WriteLine("What's the new Developer's last name:");
+            System.Console.WriteLine("What's the new Developer's _last_ name:");
             newDeveloper.DeveloperLastName = Console.ReadLine();
             //First name
-            System.Console.WriteLine("What's the new Developer's last name:");
+            System.Console.WriteLine("What's the new Developer's _first_ name:");
             newDeveloper.DeveloperFirstName = Console.ReadLine();
             //UniqueID
             System.Console.WriteLine("This will be their unique ID at Komono Insurance: ");
@@ -93,7 +93,7 @@ public class ProgramUI
             newDeveloper.DeveloperUniqueIDNumber = rInt; //assigns rnd to Developer
             //[LATER] checks uniqueness of ID number? 
             //Do they have Pluralsight (part 1)?
-            System.Console.WriteLine("Do they have a Pluralsight License? (y/n)");
+            System.Console.WriteLine("Do they have a Pluralsight License? (yes or no)");
             newDeveloper.HasPluralsightID = Console.ReadLine().ToLower;
             if (newDeveloper.HasPluralsightID = "y" || newDeveloper.HasPluralsightID = "yes")
             {//if they have Pluralsight, ask for expiry
@@ -109,60 +109,131 @@ public class ProgramUI
             _developerRepo.AddDeveloper(newDeveloper);
         }
 
+        private void AddNewTeam()
+        {
+            Console.Clear();
+            DeveloperTeam newTeam = new DeveloperTeam();
+            System.Console.WriteLine("What are we going to call the new team?");
+            newDeveloperTeam.TeamName = Console.ReadLine();
+            string newName = newDeveloperTeam.TeamName;
+            Random r = new Random(); //sets up random #
+            int rInt = r.next(100,999); //random # range
+            newDeveloper.DeveloperUniqueIDNumber = rInt;
+            System.Console.WriteLine("{newName}'s unique ID Number is: {rInt}.");
+            System.Console.WriteLine("\nThis describes's the team:");
+            char teamBlurb = Console.ReadLine();
+            System.Console.WriteLine("Do you want to add Developers to this Team now? (yes or no)");
+            addMembersNow = Console.ReadLine();
+            if (addMembersNow = "yes")
+            {
+                System.Console.WriteLine("\nChoose from the list of Developers who gets to be on Team {newName}:\n");
+                SeeAllDevelopers();
+                developerAssignment = Console.ReadLine();
+                System.Console.WriteLine("developer");
+            }else
+            {
+                System.Console.WriteLine("Team {newName} has now been added.");
+            }
+        }   
+
+
         private void SeeAllDevelopers()
         {
             Console.Clear();
-            List<Developer> listOfDevelopers = _developerRepo.GetContentList();
-            foreach (Developer developer in listOfDevelopers)
+            List<Developer> _listOfDevelopers = new List<Developers>();
+            foreach (Developer developer in _listOfDevelopers)
             {
                 System.Console.WriteLine($"Developer name:{developer.DeveloperLastName} {developer.DeveloperLastName}\nDeveloperUniqueID:{developer.DeveloperUniqueIDNumber}\nThey have Pluralsight? {developer.HasPluralsightID}");
                 }
         }
 
+        private void SeeAllTeams()
+        {
+            Console.Clear();
+            List<DeveloperTeam> _listofTeams = new List<DeveloperTeam>();
+            foreach (DeveloperTeam team in _listofTeams)
+            {
+                System.Console.WriteLine($"Team name: {DeveloperTeam.TeamName} /nTeam ID Number: {DeveloperTeam.TeamUniqueIDNumber} /nDevelopers on Team: {List<DeveloperTeam>.Count}");
+            }
+        }
+
         private void SeeDeveloperbyID()
         {
             Console.Clear();
-            SeeDeveloperList();
+            SeeAllDevelopers();
             System.Console.WriteLine("To learn more about a Developer, enter their ID number:");
-            input uniqueDeveloperID = Console.ReadLine();
+            input searchByUniqueDeveloperIDNumber = Console.ReadLine();
             Developer developer = _developerRepo.GetDeveloperByID(uniqueDeveloperIDNumber);
             if (developer != null)
             {
-            System.Console.WriteLine($"First Name: {developer.DeveloperFirstName}");
+            System.Console.WriteLine($"First Name: {developer.DeveloperFirstName} {developer.DeveloperLastName} /nDeveloperUniqueID:{developer.DeveloperUniqueIDNumber} /nDo they have a Pluralsight license? {developer.HasPluralsightID}/nAnd if so, when does it expire? {developer.PluralsightExpiryDate}");
             }
         }
-    }
 
-    // private void DeveloperByPluralsightExpiry()
-    // {
-    // }
+        // private void DeveloperByPluralsightExpiry()
+        // {
+        // }
 
-    public bool RemoveDeveloper(int developerUniqueIDNumber)
+        public bool RemoveDeveloper(int developerUniqueIDNumber)
+        {
+            SeeAllDevelopers();
+            SeeDeveloperByID();
+            System.Console.WriteLine("\nEnter the ID of the Developer you would like to remove: ");
+            int findUniqueDeveloperID = Console.ReadLine();
+            bool wasDeleted = _developerRepos.RemoveDeveloper(developerUniqueIDNumber);
+            if (wasDeleted)
+            {
+                System.Console.WriteLine("That Developer has been deleted.");
+            }
+            else
+            {
+                System.Console.WriteLine("That Developer could not be deleted.");
+            }
+        }
+
+        public bool RemoveTeam(int teamUniqueIDNumber)
+        {
+        SeeAllTeams();
+        SeeTeamsByID();
+        System.Console.WriteLine("\nEnter the ID of the Team you would like to remove: ");
+        int findUniqueTeamID = Console.ReadLine();
+        bool wasDeleted = _developerTeanRepos.RemoveDeveloperTeam(teamUniqueIDNumber);
+        if (wasDeleted)
+            {
+            System.Console.WriteLine("That Team has been deleted.");
+            }
+        else
+            {
+            System.Console.WriteLine("That Team could not be deleted.");
+            }
+        }
+    
+    public void UpdateDeveloperAttributes()
     {
         SeeAllDevelopers();
-        SeeDeveloperByID();
-        _developerRepos.RemoveDeveloper();
+        SeeDevelopersByID();
+        System.Console.WriteLine("\nEnter the ID of the Developer whose information you want to change:");
+        int findUniqueDeveloperID = Console.ReadLine();
+        Developer developer = _developerRepos.GetDeveloperByID(uniqueDeveloperIDNumber);
+            if (developer != null)
+            {
+            System.Console.WriteLine($"First Name: {developer.DeveloperFirstName} {developer.DeveloperLastName} /nDeveloperUniqueID:{developer.DeveloperUniqueIDNumber} /nDo they have a Pluralsight license? {developer.HasPluralsightID}/nAnd if so, when does it expire? {developer.PluralsightExpiryDate}");
+            }
     }
 
-    // public bool RemoveTeam(int teamUniqueIDNumber)
-    // {
-    // }
-    
-
-    // _developerTeamRepos.RemoveTeam()
-    // {
-    // }
-    
-}
-
-// Helper methods
-private DeveloperRepository SeeDeveloperByID(int developerUniqueIDNumber)
-{
-    foreach(DeveloperRepository developer in _developerRepos)
+    public void UpdateTeamAttributes()
     {
-        if (developer.DevoloperUniqueIDNumber == developerUniqueIDNumber)
+        SeeAllTeams();
+        SeeTeamsByID();
+        System.Console.WriteLine("\nEnter the ID of the Team which has information you'd like to change:");
+        int findUniqueTeamID = _developerTeamRepos.GetTeamByID(teamUniqueIDNumber);
+        if (findUniqueTeamID !=- null)
         {
-        return developer;
+            System.Console.WriteLine($"Team Name: {developerTeam.TeamName} /nTeam Description: {developerTeam.TeamDescription}");
+            //[LATER]Check to see if Team name in use?
         }
-    }   return null;
+    }
 }
+
+}
+
