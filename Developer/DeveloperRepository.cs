@@ -7,7 +7,7 @@ public class DeveloperRepository
     public void AddDeveloper(Developer developer){
         _developerList.Add(developer);
     } 
-//read -->can I call an object called DeveloperDirectory?
+//read
     public List<Developer> GetDeveloperList()
     {
         return _developerList;
@@ -32,9 +32,9 @@ public class DeveloperRepository
         }
     }
 //delete
-    public bool RemoveDeveloper(int developerUniqueID)
+    public bool RemoveDeveloper(int developerUniqueIDNumber)
     {
-        Developer developer = GetDeveloperByID(developerUniqueID);
+        Developer developer = GetDeveloperByID(developerUniqueIDNumber);
         if (developer == null)
         {
             return false;

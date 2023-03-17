@@ -10,3 +10,6 @@
 /Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/refint/DeveloperTeam.dll
 /Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.pdb
 /Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/ref/DeveloperTeam.dll
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/bin/Debug/net6.0/Developer.dll
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/bin/Debug/net6.0/Developer.pdb
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.csproj.CopyComplete

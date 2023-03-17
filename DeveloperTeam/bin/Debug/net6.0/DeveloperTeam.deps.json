@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "DeveloperTeam/1.0.0": {
+        "dependencies": {
+          "Developer": "1.0.0"
+        },
         "runtime": {
           "DeveloperTeam.dll": {}
+        }
+      },
+      "Developer/1.0.0": {
+        "runtime": {
+          "Developer.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DeveloperTeam/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Developer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

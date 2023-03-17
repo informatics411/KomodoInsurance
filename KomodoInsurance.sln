@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developer", "Developer\Developer.csproj", "{E0E7B49E-8B6E-4FD7-B726-DCBEE1430071}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperConsole", "DeveloperConsole\DeveloperConsole.csproj", "{24E18F2B-1E88-41B1-9117-6FA8C830BC88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperConsole", "DeveloperConsole\DeveloperConsole.csproj", "{8C99B0AC-AB16-4FDA-B26C-6687235DD0CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Developer", "Developer\Developer.csproj", "{CCF23C08-14DD-4C5E-8D3E-06324AA1514C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperTeam", "DeveloperTeam\DeveloperTeam.csproj", "{4B592F8E-9BF6-42E4-956A-505B047505F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperTeam", "DeveloperTeam\DeveloperTeam.csproj", "{35DE7D28-1CA2-4F3E-82FE-D445DD03D2A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,17 @@ Global
 		{4B592F8E-9BF6-42E4-956A-505B047505F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B592F8E-9BF6-42E4-956A-505B047505F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B592F8E-9BF6-42E4-956A-505B047505F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E18F2B-1E88-41B1-9117-6FA8C830BC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E18F2B-1E88-41B1-9117-6FA8C830BC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E18F2B-1E88-41B1-9117-6FA8C830BC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E18F2B-1E88-41B1-9117-6FA8C830BC88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF23C08-14DD-4C5E-8D3E-06324AA1514C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF23C08-14DD-4C5E-8D3E-06324AA1514C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF23C08-14DD-4C5E-8D3E-06324AA1514C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF23C08-14DD-4C5E-8D3E-06324AA1514C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35DE7D28-1CA2-4F3E-82FE-D445DD03D2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35DE7D28-1CA2-4F3E-82FE-D445DD03D2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35DE7D28-1CA2-4F3E-82FE-D445DD03D2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35DE7D28-1CA2-4F3E-82FE-D445DD03D2A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

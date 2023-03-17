@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Developer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Developer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Developer.dll": {}
+        }
+      },
+      "DeveloperTeam/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Developer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DeveloperTeam.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DeveloperTeam.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Developer/1.0.0": {
+      "type": "project",
+      "path": "../Developer/Developer.csproj",
+      "msbuildProject": "../Developer/Developer.csproj"
+    },
+    "DeveloperTeam/1.0.0": {
+      "type": "project",
+      "path": "../DeveloperTeam/DeveloperTeam.csproj",
+      "msbuildProject": "../DeveloperTeam/DeveloperTeam.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Developer >= 1.0.0",
+      "DeveloperTeam >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/1150Coding/.nuget/packages/": {}
@@ -31,7 +69,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/Developer/Developer.csproj": {
+              "projectPath": "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/Developer/Developer.csproj"
+            },
+            "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/DeveloperTeam.csproj": {
+              "projectPath": "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/DeveloperTeam.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
