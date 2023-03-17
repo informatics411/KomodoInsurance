@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Developer\Developer.csproj" />
-    <ProjectReference Include="..\DeveloperConsole\DeveloperConsole.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

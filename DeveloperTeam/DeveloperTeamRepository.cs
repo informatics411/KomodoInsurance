@@ -50,10 +50,9 @@ public class DeveloperTeamRepository
             {
                 return false;
             }
-
     }
 
-    //Helper method, list developer by ID;
+
     public DeveloperTeam GetTeamByID (int teamUniqueIDNumber)
     {
         foreach (DeveloperTeam team in _teamList)
