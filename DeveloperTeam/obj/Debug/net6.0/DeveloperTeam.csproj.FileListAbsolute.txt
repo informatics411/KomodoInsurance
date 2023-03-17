@@ -1,0 +1,12 @@
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.csproj.AssemblyReference.cache
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.GeneratedMSBuildEditorConfig.editorconfig
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.AssemblyInfoInputs.cache
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.AssemblyInfo.cs
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.csproj.CoreCompileInputs.cache
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/bin/Debug/net6.0/DeveloperTeam.deps.json
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/bin/Debug/net6.0/DeveloperTeam.dll
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/bin/Debug/net6.0/DeveloperTeam.pdb
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.dll
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/refint/DeveloperTeam.dll
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/DeveloperTeam.pdb
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperTeam/obj/Debug/net6.0/ref/DeveloperTeam.dll

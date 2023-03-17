@@ -1,0 +1,5 @@
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperConsole/obj/Debug/net6.0/DeveloperConsole.csproj.AssemblyReference.cache
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperConsole/obj/Debug/net6.0/DeveloperConsole.GeneratedMSBuildEditorConfig.editorconfig
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperConsole/obj/Debug/net6.0/DeveloperConsole.AssemblyInfoInputs.cache
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperConsole/obj/Debug/net6.0/DeveloperConsole.AssemblyInfo.cs
+/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/KomodoInsuranceProject/DeveloperConsole/obj/Debug/net6.0/DeveloperConsole.csproj.CoreCompileInputs.cache
