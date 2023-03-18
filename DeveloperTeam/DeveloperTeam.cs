@@ -4,10 +4,10 @@ using System.Collections.Generic;
 public class DeveloperTeam //Plain Old C# Object
 {
     public string TeamName { get; set; }
-    public int DateTeamAdded {get; set;}
+    public DateTime DateTeamAdded {get; set;}
     public int TeamUniqueIDNumber {get; set;}
-    public string Project1
-    public List<Developer> DevList = new List<Developer>();
+    public string TeamDescription {get; set;}
+    public List<Developer> DevTeamList = new List<Developer>();
 
     public DeveloperTeam(){} //Default Constrcutor
 
@@ -16,14 +16,16 @@ public class DeveloperTeam //Plain Old C# Object
         TeamName = teamName;
         TeamUniqueIDNumber = teamUniqueIDNumber;
         TeamDescription = teamDescription; 
-        DateTeamAdded = DateTeamAdded;
+        DateTeamAdded = DateTime.Today;
     }
 
-    public DeveloperTeam (string teamName, int teamUniqueIDNumber, List<Developer> devList)
+    public DeveloperTeam (string teamName, int teamUniqueIDNumber, List<Developer> devTeamList, string teamDescription)
     {
         TeamName = teamName;
         TeamUniqueIDNumber = teamUniqueIDNumber;
-        DevList = devList;
+        DevTeamList = devTeamList;
+        TeamDescription = teamDescription;
+        DateTeamAdded = DateTime.Today;
     }
 
 }

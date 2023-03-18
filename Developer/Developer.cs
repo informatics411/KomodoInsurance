@@ -20,4 +20,9 @@ public class Developer  //Plain Old C# Object
         DateDeveloperAdded = dateDeveloperAdded;
     }
 
+// public string FullName 
+// {
+//     get { return $"{FirstName} {LastName}";}
+// }
+
 }

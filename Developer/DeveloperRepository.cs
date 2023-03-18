@@ -63,13 +63,20 @@ public class DeveloperRepository
         return null;
     }
 
-    public Developer PlaceDeveloperOnTeam (int developerUniqueIDNumber) 
-    {
-        GetDeveloperByID();
-        System.Console.WriteLine("What Team should this Developer be on? Choose from below:");
-        SeeAllDeveloperTeams();
+    // public Developer PlaceDeveloperOnTeam (int developerUniqueIDNumber) 
+    // {
+    //     GetDeveloperByID();
+    //     System.Console.WriteLine("What Team should this Developer be on? Choose from below:");
+    //     SeeAllDeveloperTeams();
         
+    // }
 
+    // public Developer PluralsightExpiry (int pluaralsightExpiry)
+    // {
+    //     GetDeveloperByID();
+    //     if (Developer hasPluralsightID == true)
+    //     {
 
-    }
+    //     }
+    // }
 }

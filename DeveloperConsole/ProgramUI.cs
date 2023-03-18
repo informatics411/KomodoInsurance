@@ -37,34 +37,34 @@ public class ProgramUI
             switch (input)
             {
                 case "1":
-                    AddNewDeveloper();
+                    ChoosingToAddNewDeveloper();
                     break;
                 case "2": //View all Developers
-                    SeeAllDevelopers();
+                    ChoosingToSeeAllDevelopers();
                     break;
                 case "3": //View Developer by ID
-                    SeeDeveloperbyID();
+                    ChoosingToSeeADeveloperByID();
                     break;
                 case "4": //View Developer by Has Pluralsight
                     // DeveloperByPluralsightExpiry();
                     break;
                 case "5": //Update existing Developer
-                    UpdateDeveloperAttributes();
+                    ChoosingToChangeDeveloperInfo();
                     break;
                 case "6": //Delete existing Developer
-                    RemoveDeveloper();
+                    ChoosingToRemoveADeveloper();
                     break;
                 case "7":
-                    SeeAllTeams();
+                    ChoosingToSeeAllTheTeams();
                     break;
                 case "8":
-                    AddNewTeam();
+                    ChoosingToAddNewTeam();
                     break;
                 case "9":
-                    UpdateTeamAttributes();
+                    ChoosingToAssignDeveloperToTeam();
                     break;
                 case "10":
-                    RemoveTeam();
+                    ChoosingToRemoveATeam();
                     break;
                 // Exit
                 case "11":
@@ -79,7 +79,7 @@ public class ProgramUI
         }
     }
 
-    private void AddNewDeveloper()
+    private void ChoosingToAddNewDeveloper()
     {
         Console.Clear();
         Developer newDeveloper = new Developer();
@@ -115,7 +115,7 @@ public class ProgramUI
         _developerRepos.AddDeveloper(newDeveloper);
     }
 
-    private void AddNewTeam()
+    private void ChoosingToAddNewTeam()
     {   bool nowAdding = true;
         while (nowAdding)
         Console.Clear();
@@ -132,7 +132,7 @@ public class ProgramUI
     }
 
 
-    private void SeeAllDevelopers()
+    private void ChoosingToSeeAllDevelopers()
     {
         Console.Clear();
         List<Developer> _listOfDevelopers = new List<Developer>();
@@ -142,36 +142,36 @@ public class ProgramUI
         }
     }
 
-    private void SeeAllTeams()
+    private void ChoosingToSeeAllTheTeams()
     {
         Console.Clear();
         List<DeveloperTeam> _listofTeams = new List<DeveloperTeam>();
         foreach (DeveloperTeam team in _listofTeams)
         {
-            System.Console.WriteLine($"Team name: {DeveloperTeam.TeamName} /nTeam ID Number: {DeveloperTeam.TeamUniqueIDNumber} /nDevelopers on Team: {List<DeveloperTeam>.Count}");
+            System.Console.WriteLine($"Team name: {team.TeamName} \nTeam ID Number: {team.TeamUniqueIDNumber} \n");
         }
     }
 
-    private void SeeDeveloperbyID()
+    private void ChoosingToSeeADeveloperByID()
     {
         Console.Clear();
-        SeeAllDevelopers();
+        ChoosingToSeeAllDevelopers();
         System.Console.WriteLine("To learn more about a Developer, enter their ID number:");
         int searchByUniqueDeveloperIDNumber = int.Parse(Console.ReadLine());
-        Developer developer = _developerRepo.GetDeveloperByID(uniqueDeveloperIDNumber);
+        Developer developer = _developerRepos.GetDeveloperByID(searchByUniqueDeveloperIDNumber);
         if (developer != null)
         {
             System.Console.WriteLine($"First Name: {developer.DeveloperFirstName} {developer.DeveloperLastName} /nDeveloperUniqueID:{developer.DeveloperUniqueIDNumber} /nDo they have a Pluralsight license? {developer.HasPluralsightID}/nAnd if so, when does it expire? {developer.PluralsightExpiryDate}");
         }
     }
 
-    private void SeeTeambyID()
+    private void ChoosingToSeeTeambyID()
     {
         Console.Clear();
-        SeeAllTeams();
+        ChoosingToSeeAllTheTeams();
         System.Console.WriteLine("To see more about a Team, enter its ID number:");
         int searchByUniqueTeamIDNumber = int.Parse(Console.ReadLine());
-        DeveloperTeam team = _developerTeamRepos.GetTeamByID(searchByUniqueTeamIDNumber);
+        DeveloperTeam team = _developerTeamRepos.FindTeamByID(searchByUniqueTeamIDNumber);
         if (team != null)
         {
             System.Console.WriteLine($"Team Name:{team.TeamName}/nTeam ID:{team.TeamUniqueIDNumber}");
@@ -186,9 +186,9 @@ public class ProgramUI
     // {
     // }
 
-    public bool RemoveDeveloper()
+    public void ChoosingToRemoveADeveloper()
     {
-        SeeAllDevelopers();
+        ChoosingToSeeAllDevelopers();
         System.Console.WriteLine("\nEnter the ID of the Developer you would like to remove: ");
         int findUniqueDeveloperID = int.Parse(Console.ReadLine());
         bool wasDeleted = _developerRepos.RemoveDeveloper(findUniqueDeveloperID);
@@ -202,12 +202,13 @@ public class ProgramUI
         }
     }
 
-    public bool RemoveTeam()
+
+    public void ChoosingToRemoveATeam()
     {
-        SeeAllTeams();
+        ChoosingToSeeAllTheTeams();
         System.Console.WriteLine("\nEnter the ID of the Team you would like to remove: ");
         int findUniqueTeamID = int.Parse(Console.ReadLine());
-        bool wasDeleted = _developerTeamRepos.RemoveDeveloperTeam(findUniqueTeamID);
+        bool wasDeleted = _developerTeamRepos.RemoveTeamAltogether(findUniqueTeamID);
         if (wasDeleted)
         {
             System.Console.WriteLine("That Team has been deleted.");
@@ -218,107 +219,116 @@ public class ProgramUI
         }
     }
 
-    public void UpdateDeveloperAttributes()
+    public void ChoosingToChangeDeveloperInfo()
     {
-        SeeAllDevelopers();
-        SeeDevelopersByID();
+        ChoosingToSeeAllDevelopers();
+        ChoosingToSeeADeveloperByID();
         System.Console.WriteLine("\nEnter the ID of the Developer whose information you want to change:");
-        int findUniqueDeveloperID = Console.ReadLine();
-        Developer developer = _developerRepos.GetDeveloperByID(uniqueDeveloperIDNumber);
+        int findUniqueDeveloperID = int.Parse(Console.ReadLine());
+        Developer developer = _developerRepos.GetDeveloperByID(findUniqueDeveloperID);
         if (developer != null)
         {
             System.Console.WriteLine($"First Name: {developer.DeveloperFirstName} {developer.DeveloperLastName} /nDeveloperUniqueID:{developer.DeveloperUniqueIDNumber} /nDo they have a Pluralsight license? {developer.HasPluralsightID}/nAnd if so, when does it expire? {developer.PluralsightExpiryDate}");
         }
     }
 
-    public void UpdateTeamAttributes()
+    public void ChoosingToUpdateTeamAttributes()
     {
-        SeeAllTeams();
-        SeeTeamsByID();
+        ChoosingToSeeAllTheTeams();
+        ChoosingToSeeTeambyID();
         System.Console.WriteLine("\nEnter the ID of the Team which has information you'd like to change:");
-        int findUniqueTeamID = _developerTeamRepos.GetTeamByID(teamUniqueIDNumber);
-        if (findUniqueTeamID != -null)
+        int findUniqueTeamID = int.Parse(Console.ReadLine());
+        DeveloperTeam team = _developerTeamRepos.FindTeamByID(findUniqueTeamID);
+        if (findUniqueTeamID != null)
         {
-            System.Console.WriteLine($"Team Name: {developerTeam.TeamName} /nTeam Description: {developerTeam.TeamDescription}");
+            System.Console.WriteLine($"Team Name: {team.TeamName} /nTeam Description: {team.TeamDescription}");
             //[LATER]Check to see if Team name in use?
         }
     }
 
-    public void AddDeveloperToTeam(int developerUniqueIDNumber)
+    public void ChoosingToAssignDeveloperToTeam()
     {
-        SeeAllTeams();
+        ChoosingToSeeAllTheTeams();
         System.Console.WriteLine("Choose the Team's ID to which you'd like to add Developers:");
         int chosenTeamUniqueID = int.Parse(Console.ReadLine());
         if (chosenTeamUniqueID > 100 || chosenTeamUniqueID > 1000)
         {
-            DeveloperTeam thisTeamNow = _developerTeamRepos.GetTeamByID(chosenTeamUniqueID);
+            DeveloperTeam thisTeamNow = _developerTeamRepos.FindTeamByID(chosenTeamUniqueID);
             System.Console.WriteLine($"Are you ready to add Developers to {thisTeamNow.TeamName}?");
         }
         else
         {
             System.Console.WriteLine("That Team isn't in this Directory.");
         }
-        SeeAllDevelopers();
-        System.Console.WriteLine($"Now choose the Developer you want to add to {thisTeamNow.TeamName}:");
-        int developerToAdd = int.Parse(ReadLine());
+        ChoosingToSeeAllDevelopers();
+        DeveloperTeam thisTeamAgain = _developerTeamRepos.FindTeamByID(chosenTeamUniqueID);
+        System.Console.WriteLine($"Now choose the Developer you want to add to {thisTeamAgain.TeamName}:");
+        int developerToAdd = int.Parse(Console.ReadLine());
+        bool stillChoosing = true;
         while (stillChoosing)
-            int developerChosenForTeam = Console.ReadLine();
+        //int developerChosenForTeam = int.Parse(Console.ReadLine());
         System.Console.WriteLine($"You'd like to add {developerToAdd} (yes or no)?");
-        string confirmAdd = Console.ReadLine().ToLower;
-        if (confirmAdd = "yes")
+        Developer developer = _developerRepos.GetDeveloperByID(developerToAdd);
+        string confirmAdd = Console.ReadLine().ToLower();
+        if (confirmAdd == "yes")
         {
-            List<Developer> _developersList = new List<Developer.Add>();
+            thisTeamAgain.DevTeamList.Add(developer);
         }
         else
         {
-            System.Console.WriteLine($"Again, choose the Developer you\'d like to add to {thisTeamNow.TeamName}:");
+            System.Console.WriteLine($"Again, choose the Developer you\'d like to add to {thisTeamAgain.TeamName}:");
         }
 
-        System.Console.WriteLine($"{developerToAdd} is now a member of {thisTeamnow.TeamName}");
-        System.Cponsole.WriteLine($"Would you like to add another Developer to {thisTeamNow.TeamName}?");
-        string anotherDeveloperForTeam = Console.ReadLine().ToLower;
-        if (anotherDeveloperForTeam = "yes")
+        System.Console.WriteLine($"{developerToAdd} is now a member of {thisTeamAgain.TeamName}");
+        System.Console.WriteLine($"Would you like to add another Developer to {thisTeamAgain.TeamName}?");
+        string anotherDeveloperForTeam = Console.ReadLine().ToLower();
+        if (anotherDeveloperForTeam == "yes")
         {
-            SeeAllDevelopers();
-            System.Console.WriteLine($"Now choose the Developer you want to add to {thisTeamNow.TeamName}:");
-            int anotherDeveloperToAdd = int.Parse(ReadLine());
-            while (stillChoosingAdditionalDeveloper)
-                int developerChosenForTeam = Console.ReadLine();
-            System.Console.WriteLine($"You'd like to add {developerToAdd} (yes or no)?");
-            string confirmAdd = Console.ReadLine().ToLower;
-            if (confirmAdd = "yes")
+            ChoosingToSeeAllDevelopers();
+            System.Console.WriteLine($"Now choose the Developer you want to add to {thisTeamAgain.TeamName}:");
+            int yetAdditionalDeveloper = int.Parse(Console.ReadLine());
+            // bool choosingYetAdditionalDeveloper = true;
+            // while (choosingYetAdditionalDeveloper)
+            //     int developerChosenForTeam = int.Parse(Console.ReadLine());
+            System.Console.WriteLine($"You'd like to add {yetAdditionalDeveloper} (yes or no)?");
+            string confirmAdditionalAdd = Console.ReadLine().ToLower();
+            if (confirmAdditionalAdd == "yes")
             {
-                List<Developer> _developersList = new List<Developer.Add>();
+                thisTeamAgain.DevTeamList.Add(developer);
             }
             else
             {
-                System.Console.WriteLine($"Again, choose the Developer you\'d like to add to {thisTeamNow.TeamName}:");
+                System.Console.WriteLine($"Again, choose the Developer you\'d like to add to {thisTeamAgain.TeamName}:");
             }
-
-            stillChosingAdditionalDeveloper = false;
         }
     }
-    public void AddDevelopertoTeam ()
-{
-    GetTeamByID();
-    System.Console.Writeline("Using Team ID Number, choose a Team you want to add a Developer to.");
-    int teamGettingDeveloper = int.Parse(ReadLine());
-    List<DeveloperTeam> expandingTeam = new _developerTeamRepos.GetTeamByID();
-    System.Console.WriteLine($"\nChoose the ID Number of the person who you want on Team {expandingTeam}:\n");
-    SeeAllDevelopers();
-    developerToBeAdded = int.Parse(Console.ReadLine());
-    int teamSizeBeforeAddition = expandingTeam.Count;
-    teamAddingDeveloper.Add(developerToBeAdded);
-    int teamSizeAfterAddition = teamAddingDeveloper.Count;
-        if (teamSizeBeforeAddition == teamSizeAfterAddition)
-        {
-        System.Console.WriteLine("Try again! Nobody was added to the Team.");
-        }   
-        else
-        {
-        System.Console.WriteLine($"Success! You've added {developerToBeAdded} to {expandingTeam}.");
-        }
-}
+//     public void ChoosingToAssignDeveloperToTeam ()
+// {
+//     GetTeamByID();
+//     System.Console.Writeline("Using Team ID Number, choose a Team you want to add a Developer to.");
+//     int teamGettingDeveloper = int.Parse(ReadLine());
+//     List<DeveloperTeam> expandingTeam = new _developerTeamRepos.GetTeamByID();
+//     System.Console.WriteLine($"\nChoose the ID Number of the person who you want on Team {expandingTeam}:\n");
+//     SeeAllDevelopers();
+//     developerToBeAdded = int.Parse(Console.ReadLine());
+//     int teamSizeBeforeAddition = expandingTeam.Count;
+//     teamAddingDeveloper.Add(developerToBeAdded);
+//     int teamSizeAfterAddition = teamAddingDeveloper.Count;
+//         if (teamSizeBeforeAddition == teamSizeAfterAddition)
+//         {
+//         System.Console.WriteLine("Try again! Nobody was added to the Team.");
+//         }   
+//         else
+//         {
+//         System.Console.WriteLine($"Success! You've added {developerToBeAdded} to {expandingTeam}.");
+//         }
+// }
+
+
+
+
+
+
 }
 
 // keepRunning = false

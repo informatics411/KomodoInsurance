@@ -4,8 +4,8 @@ public class DeveloperTeamRepository
 {
     private List<DeveloperTeam> _team = new List<DeveloperTeam>();
 
-   //create
-    public void AddTeam(DeveloperTeam newTeam){
+//create
+    public void AddTeamFromScratch(DeveloperTeam newTeam){
         _team.Add(newTeam);
     } 
 //read 
@@ -15,9 +15,9 @@ public class DeveloperTeamRepository
     }
         
 //update
-    public bool UpdateTeamsAttributes (DeveloperTeam newTeam)
+    public bool UpdateATeamAttribute (DeveloperTeam newTeam)
     {   //Find the Team by Team ID
-        DeveloperTeam knownTeam = GetTeamByID(newTeam.TeamUniqueIDNumber);
+        DeveloperTeam knownTeam = FindTeamByID(newTeam.TeamUniqueIDNumber);
         if (knownTeam != null) 
         {
             knownTeam.TeamName = newTeam.TeamName;
@@ -32,9 +32,9 @@ public class DeveloperTeamRepository
         }
     }
 //delete
-    public bool RemoveTeam(int teamUniqueIDNumber)
+    public bool RemoveTeamAltogether(int teamUniqueIDNumber)
     {
-        DeveloperTeam team = GetTeamByID(teamUniqueIDNumber);
+        DeveloperTeam team = FindTeamByID(teamUniqueIDNumber);
         if (team == null)
         {
             return false;
@@ -50,7 +50,7 @@ public class DeveloperTeamRepository
                 return false;
             }
     }
-    public DeveloperTeam GetTeamByID (int teamUniqueIDNumber)
+    public DeveloperTeam FindTeamByID (int teamUniqueIDNumber)
     {
         foreach (DeveloperTeam team in _team)
         {
@@ -61,23 +61,4 @@ public class DeveloperTeamRepository
         }   
         return null;
     } 
-
-    public DeveloperTeam AddDeveloperToTeam();
-    {
-        SeeAllTeams();
-        GetTeamByID();
-        System.Console.WriteLine("Choose the Team you want Developers added:");
-        expandingTeam = int.Parse(Console.ReadLine();
-        List<DeveloperTeam> expandingTeam = new _developerTeamRepos.GetTeamByID();
-        
-        developerToBeAdded = int.Parse(Console.ReadLine());
-    int teamSizeBeforeAddition = expandingTeam.Count;
-    teamAddingDeveloper.Add(developerToBeAdded);
-    int teamSizeAfterAddition = teamAddingDeveloper.Count;
-        if (teamSizeBeforeAddition == teamSizeAfterAddition)
-        {
-    }
-
-
-    
 }
