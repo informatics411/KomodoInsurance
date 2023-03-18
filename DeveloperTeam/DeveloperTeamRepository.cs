@@ -2,25 +2,24 @@ using System.Collections.Generic;
 
 public class DeveloperTeamRepository
 {
-    private List<DeveloperTeam> _teamList = new List<DeveloperTeam>();
+    private List<DeveloperTeam> _team = new List<DeveloperTeam>();
 
    //create
-    public void AddTeam(DeveloperTeam team){
-        _teamList.Add(team);
+    public void AddTeam(DeveloperTeam newTeam){
+        _team.Add(newTeam);
     } 
-//read -->can I call an object called DeveloperDirectory?
+//read 
     public List<DeveloperTeam> GetTeamList()
     {
-        return _teamList;
+        return _team;
     }
         
 //update
-    public bool UpdateTeamsList (DeveloperTeam newTeam)
+    public bool UpdateTeamsAttributes (DeveloperTeam newTeam)
     {   //Find the Team by Team ID
         DeveloperTeam knownTeam = GetTeamByID(newTeam.TeamUniqueIDNumber);
-        if (knownTeam != null) //Do you want to add developer? (UI)
+        if (knownTeam != null) 
         {
-            knownTeam.TeamUniqueIDNumber = newTeam.TeamUniqueIDNumber;//QUESTION: is this redundant, e.g., the unchangeable property?
             knownTeam.TeamName = newTeam.TeamName;
             knownTeam.TeamDescription = newTeam.TeamDescription;
             knownTeam.DateTeamAdded = newTeam.DateTeamAdded;
@@ -40,9 +39,9 @@ public class DeveloperTeamRepository
         {
             return false;
         }
-        int initialCount = _teamList.Count;
-        _teamList.Remove(team);
-        if (initialCount > _teamList.Count)
+        int initialCount = _team.Count;
+        _team.Remove(team);
+        if (initialCount > _team.Count)
             {
                 return true;
             }
@@ -51,11 +50,9 @@ public class DeveloperTeamRepository
                 return false;
             }
     }
-
-
     public DeveloperTeam GetTeamByID (int teamUniqueIDNumber)
     {
-        foreach (DeveloperTeam team in _teamList)
+        foreach (DeveloperTeam team in _team)
         {
             if (team.TeamUniqueIDNumber == teamUniqueIDNumber)
             {
@@ -65,7 +62,22 @@ public class DeveloperTeamRepository
         return null;
     } 
 
-    
+    public DeveloperTeam AddDeveloperToTeam();
+    {
+        SeeAllTeams();
+        GetTeamByID();
+        System.Console.WriteLine("Choose the Team you want Developers added:");
+        expandingTeam = int.Parse(Console.ReadLine();
+        List<DeveloperTeam> expandingTeam = new _developerTeamRepos.GetTeamByID();
+        
+        developerToBeAdded = int.Parse(Console.ReadLine());
+    int teamSizeBeforeAddition = expandingTeam.Count;
+    teamAddingDeveloper.Add(developerToBeAdded);
+    int teamSizeAfterAddition = teamAddingDeveloper.Count;
+        if (teamSizeBeforeAddition == teamSizeAfterAddition)
+        {
+    }
+
 
     
 }
