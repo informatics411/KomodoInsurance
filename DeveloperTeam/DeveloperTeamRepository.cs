@@ -5,8 +5,13 @@ public class DeveloperTeamRepository
     private List<DeveloperTeam> _team = new List<DeveloperTeam>();
 
 //create
-    public void AddTeamFromScratch(DeveloperTeam newTeam){
+    public void AddTeamFromScratch(DeveloperTeam newTeam)
+    {
         _team.Add(newTeam);
+        Random r = new Random(); //sets up random #
+        int rInt = r.Next(100, 999); //random # range
+        newTeam.TeamUniqueIDNumber = rInt;
+        int teamDevelopersAtStart = newTeam.DevTeamList.Count;
     } 
 //read 
     public List<DeveloperTeam> GetTeamList()

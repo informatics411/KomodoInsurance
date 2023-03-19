@@ -20,7 +20,7 @@ public class ProgramUI
         {
             Console.Clear();
 
-            System.Console.WriteLine("Developer Directory Options on {DateTime:YearMoDay}:\n" +
+            System.Console.WriteLine($"Developer Directory Options on {DateTime.Today.Date}:\n" +
                     " 1. Add New Developer\n" +
                     " 2. View Developers\n" +
                     " 3. View Developer By ID\n" +
@@ -90,15 +90,15 @@ public class ProgramUI
         System.Console.WriteLine("What's the new Developer's _first_ name:");
         newDeveloper.DeveloperFirstName = Console.ReadLine();
         //UniqueID
-        System.Console.WriteLine("This will be their unique ID at Komono Insurance: ");
+       
         Random r = new Random(); //sets up random #
         int rInt = r.Next(32333, 99999);
         newDeveloper.DeveloperUniqueIDNumber = rInt; //assigns rnd to Developer
+         System.Console.WriteLine("This will be their unique ID at Komono Insurance: {rInt}. ");
         //[LATER] checks uniqueness of ID number? 
         //Do they have Pluralsight (part 1)?
         System.Console.WriteLine("Do they have a Pluralsight License? (yes or no)");
         string hasPluralsightID = Console.ReadLine().ToLower();
-
         if (hasPluralsightID == "y" || hasPluralsightID == "yes")
         {//if they have Pluralsight, ask for expiry
             newDeveloper.HasPluralsightID = true;
@@ -116,19 +116,23 @@ public class ProgramUI
     }
 
     private void ChoosingToAddNewTeam()
-    {   bool nowAdding = true;
+    {   
+       bool nowAdding = true;
         while (nowAdding)
+        {
         Console.Clear();
+        System.Console.WriteLine("....working...creating space for...new....Team...");
         DeveloperTeam newTeam = new DeveloperTeam();
         System.Console.WriteLine("What are we going to call the new team?");
         newTeam.TeamName = Console.ReadLine();
-        string newName = newTeam.TeamName;
+        System.Console.WriteLine($"\nDescribe Team {newTeam.TeamName}:");
+        newTeam.TeamDescription = Console.ReadLine();
         Random r = new Random(); //sets up random #
-        int rInt = r.Next(100, 999); //random # range
+        int rInt = r.Next(100,999); //random # range
         newTeam.TeamUniqueIDNumber = rInt;
-        System.Console.WriteLine("{newName}'s unique ID Number is: {rInt}.");
-        System.Console.WriteLine("\nThis describes the team:");
-        string teamBlurb = Console.ReadLine();
+        System.Console.WriteLine($"{newTeam.TeamName}, described as '{newTeam.TeamDescription}' and has the Unique ID: {newTeam.TeamUniqueIDNumber}.");
+        nowAdding = false;
+        Menu();
     }
 
 
